@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    body {
+        background: #fff;
+    }
+
+    .navbar-inverse {
+        visibility: hidden;
+    }
+</style>
+<div class="jumbotron">
+    <img src="~/Content/Images/logo.png" />
+</div>  
+
+<div class="startContainer">
+    <div class="row">
+        <div class="col-lg-6">
+            @Html.ActionLink("Employees", "Index", "Employee", null, new { @class = "btn btn-xl" })
+        </div>
+
+        <div class="col-lg-6">
+            @Html.ActionLink("Postboard", "Index", "Post", null, new { @class = "btn btn-xl"})
+        </div>
+
+        <div class="col-lg-6">
+            @Html.ActionLink("Calendar", "Index", "Employee", new { @class = "btn btn-xl" })
+        </div>
+
+        <div class="col-lg-6">
+            @Html.ActionLink("Contracts", "Index", "Employee", new { @class = "btn btn-xl" })
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,126 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: #0A6114;
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.panel {
+    padding: 20px;
+    width: 17em;
+    box-shadow: 5px 4px 7px -3px #0C0E0C;    
+}
+
+.navbar-inverse {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #0A6114;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #b42323;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #0A6114;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: #b42323;
+}
+
+.btn {
+    padding: 3px 16px;  
+    margin-bottom: 11px;
+    margin-right: 10px;
+    margin-top: 24px;
+}
+
+h2, .h2 {
+    color: #fff;
+}
+
+.startContainer {
+    width: 36em;
+    height: 29em;
+    margin: 0em 0 0 23em;
+}
+
+.appContent {
+    background: #fff;
+    width: 70em;
+    height: 37em;
+    margin: 45px 0px 0px 50px;
+    padding: 50px 62px 25px 41px;
+    /*border: 1px solid #21802C;
+    box-shadow: inset 0px 2px 16px -1px #0A6114;*/
+}
+
+.btn-xl {
+    background: #0099CC;
+    width: 9em;
+    height: 5em;
+    padding: 42px 26px 0px 20px;
+    font-size: 23px;
+    color: #fff;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.btn-xl:hover {
+    background: #0F7CA0;
+    color: #fff;
+
+}
+
+.jumbotron {
+    margin-left: 300px;
+    background-color: #fff;
+}
+
+.col-md-1 {
+    margin-right: 13em;
+}

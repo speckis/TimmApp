@@ -1,0 +1,87 @@
+﻿@using System.Linq
+@model TimmApp.Models.PostViewModel
+@*@model IEnumerable<TimmApp.Models.Post>*@
+<script src="~/Content/Main.css"></script>
+@{
+    ViewBag.Title = "Postboard";
+}
+<style>
+    .appContent {
+        background: #0A6114;
+    }
+</style>
+
+@*<div class="appContent">*@
+    <h2>Postboard</h2>
+<div class="row">
+    <div class="col-md-2">
+        @Html.ActionLink("Add Post", "Create", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+
+    <div class="col-md-1">
+
+        @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.First).OrderBy(s => s.priority))
+        {
+            <div class="row">
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.postId }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.postId }, new { @class = "btn btn-default" })<br />*@<br />
+                <div class=" panel panel-default">
+                    @Html.DisplayFor(modelItem => item.postMsg, new { @class = "panel-body" })
+                </div>
+                @*<div class="panel panel-default">
+                        @Html.DisplayFor(modelItem => item.priority)
+                    </div>*@
+            </div>
+        }
+    </div>
+
+    <div class="col-md-1">
+        @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.Second))
+        {
+            <div class="row">
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.postId }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.postId }, new { @class = "btn btn-default" })<br />*@<br />
+                <div class=" panel panel-default">
+                    @Html.DisplayFor(modelItem => item.postMsg, new { @class = "panel-body" })
+                </div>
+                @*<div class="panel panel-default">
+                        @Html.DisplayFor(modelItem => item.priority)
+                    </div>*@
+            </div>
+        }
+    </div>
+
+    <div class="col-md-1">
+        @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.Third))
+        {
+            <div class="row">
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.postId }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.postId }, new { @class = "btn btn-default" })*@<br />
+                <div class=" panel panel-default">
+                    @Html.DisplayFor(modelItem => item.postMsg, new { @class = "panel-body" })
+                </div>
+                @*<div class="panel panel-default">
+                        @Html.DisplayFor(modelItem => item.priority)
+                    </div>*@
+            </div>
+        }
+    </div>
+
+    <div class="col-md-1">
+    @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.Forth))
+    {
+        <div class="row">
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.postId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.postId }, new { @class = "btn btn-default" })*@<br />
+            <div class=" panel panel-default">
+                @Html.DisplayFor(modelItem => item.postMsg, new { @class = "panel-body" })
+            </div>
+            @*<div class="panel panel-default">
+                    @Html.DisplayFor(modelItem => item.priority)
+                </div>*@
+        </div>
+    }
+    </div>
+
+@*</div>*@

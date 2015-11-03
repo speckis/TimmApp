@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TimmApp.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background: #0099CC;
+    }
+</style>
+    <h2>Employees</h2>
+<div class="appContent">
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployedAs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractEndDate)
+            </th>
+            <th></th>
+        </tr>*@
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.PhoneNum)
+                </td>*@
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployedAs)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.ContractStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractEndDate)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
