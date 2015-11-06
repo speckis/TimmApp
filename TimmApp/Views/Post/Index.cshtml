@@ -26,7 +26,7 @@
             <div class="row">
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.postId }, new { @class = "btn btn-default" })
                     @Html.ActionLink("Delete", "Delete", new { id = item.postId }, new { @class = "btn btn-default" })<br />*@<br />
-                <div class=" panel panel-default">
+                <div class=" panel panel-first">
                     @Html.DisplayFor(modelItem => item.postMsg, new { @class = "panel-body" })
                 </div>
                 @*<div class="panel panel-default">
@@ -42,7 +42,7 @@
             <div class="row">
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.postId }, new { @class = "btn btn-default" })
                     @Html.ActionLink("Delete", "Delete", new { id = item.postId }, new { @class = "btn btn-default" })<br />*@<br />
-                <div class=" panel panel-default">
+                <div class=" panel panel-second">
                     @Html.DisplayFor(modelItem => item.postMsg, new { @class = "panel-body" })
                 </div>
                 @*<div class="panel panel-default">

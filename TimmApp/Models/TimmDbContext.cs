@@ -16,5 +16,16 @@ namespace TimmApp.Models
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Event> events { get; set; }
+
+        internal void SubmitChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void InsertOnSubmit()
+        {
+
+        }
     }
 }

@@ -49,6 +49,14 @@ input[type="checkbox"].input-validation-error {
     box-shadow: 5px 4px 7px -3px #0C0E0C;    
 }
 
+.panel-first {
+    border: 2px solid #0099CC;
+}
+
+.panel-second {
+    border: 2px solid #b42323;
+}
+
 .navbar-inverse {
     background-color: #fff;
     border-color: #fff;
