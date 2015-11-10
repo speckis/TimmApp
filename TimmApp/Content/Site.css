@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background: #0A6114;
+    background: #C5DDBD;
 }
 
 
@@ -50,11 +50,19 @@ input[type="checkbox"].input-validation-error {
 }
 
 .panel-first {
-    border: 2px solid #0099CC;
+    border: 2px solid #1D5046;
 }
 
 .panel-second {
     border: 2px solid #b42323;
+}
+
+.panel-third {
+    border: 2px solid #528342;
+}
+
+.panel-fourth {
+    border: 2px solid #b94a48;
 }
 
 .navbar-inverse {
@@ -105,8 +113,8 @@ h2, .h2 {
     box-shadow: inset 0px 2px 16px -1px #0A6114;*/
 }
 
-.btn-xl {
-    background: #0099CC;
+.btn-blue {
+    background: #326259;
     width: 9em;
     height: 5em;
     padding: 42px 26px 0px 20px;
@@ -118,17 +126,97 @@ h2, .h2 {
             border-radius: 8px;
 }
 
-.btn-xl:hover {
-    background: #0F7CA0;
+.btn-blue:hover {
+    background: #1D5046;
+    color: #fff;
+
+}
+
+.btn-brown {
+    background: #9A6C4E;
+    width: 9em;
+    height: 5em;
+    padding: 42px 26px 0px 20px;
+    font-size: 23px;
+    color: #fff;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.btn-brown:hover {
+    background: #7D4D2D;
+    color: #fff;
+
+}
+
+.btn-green {
+    background: #528342;
+    width: 9em;
+    height: 5em;
+    padding: 42px 26px 0px 20px;
+    font-size: 23px;
+    color: #fff;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.btn-green:hover {
+    background: #366A26;
+    color: #fff;
+
+}
+
+.btn-purple {
+    background: #934B53;
+    width: 9em;
+    height: 5em;
+    padding: 42px 26px 0px 20px;
+    font-size: 23px;
+    color: #fff;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.btn-purple:hover {
+    background: #772B35;
+    color: #fff;
+
+}
+
+.btn-log {
+    background: #375E6F;
+    width: 12em;
+    height: 5em;
+    font-size: 23px;
+    color: #fff;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.btn-log:hover {
+    background: #224A5B;
     color: #fff;
 
 }
 
 .jumbotron {
     margin-left: 300px;
-    background-color: #fff;
+    background: #C5DDBD;    
 }
 
 .col-md-1 {
     margin-right: 13em;
+}
+
+.col-md-8 {
+    margin-left: 27em;
+    margin-top: 12em;
 }

@@ -46,6 +46,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -167,6 +168,11 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="EventClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventClasses.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +183,10 @@
     <Compile Include="Migrations\201511051418130_EventTableAdded.cs" />
     <Compile Include="Migrations\201511051418130_EventTableAdded.Designer.cs">
       <DependentUpon>201511051418130_EventTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511081451460_AddedText.cs" />
+    <Compile Include="Migrations\201511081451460_AddedText.Designer.cs">
+      <DependentUpon>201511081451460_AddedText.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -200,6 +210,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="EventClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>EventClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\daypilot-all.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -261,12 +276,21 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="EventClasses.dbml.layout">
+      <DependentUpon>EventClasses.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Migrations\201511022327520_DeletedDuplicate.resx">
       <DependentUpon>201511022327520_DeletedDuplicate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511051418130_EventTableAdded.resx">
       <DependentUpon>201511051418130_EventTableAdded.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081451460_AddedText.resx">
+      <DependentUpon>201511081451460_AddedText.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

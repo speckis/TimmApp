@@ -10,6 +10,8 @@ namespace TimmApp.Models
             public int id { get; set; }
             public Employee employee { get; set; }
 
+            public string text { get; set; }
+
             public DateTime eventStart { get; set; }
             public DateTime eventEnd { get; set; }
     }

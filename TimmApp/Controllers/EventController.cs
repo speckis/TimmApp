@@ -43,51 +43,51 @@ namespace TimmApp.Controllers
                 Update();
             }
 
-            //protected override void OnEventResize(EventResizeArgs e)
-            //{
-            //    var toBeResized = (from ev in db.events where ev.id == Convert.ToInt32(e.Id) select ev).First();
-            //    toBeResized.eventStart = e.NewStart;
-            //    toBeResized.eventEnd = e.NewEnd;
-            //    db.SubmitChanges();
-            //    Update();
-            //}
+            protected override void OnEventResize(EventResizeArgs e)
+            {
+                var toBeResized = (from ev in db.events where ev.id == Convert.ToInt32(e.Id) select ev).First();
+                toBeResized.eventStart = e.NewStart;
+                toBeResized.eventEnd = e.NewEnd;
+                db.SaveChanges();
+                Update();
+            }
 
-            //protected override void OnEventMove(EventMoveArgs e)
-            //{
-            //    var toBeResized = (from ev in db.events where ev.id == Convert.ToInt32(e.Id) select ev).First();
-            //    toBeResized.eventStart = e.NewStart;
-            //    toBeResized.eventEnd = e.NewEnd;
-            //    db.SubmitChanges();
-            //    Update();
-            //}
+            protected override void OnEventMove(EventMoveArgs e)
+            {
+                var toBeResized = (from ev in db.events where ev.id == Convert.ToInt32(e.Id) select ev).First();
+                toBeResized.eventStart = e.NewStart;
+                toBeResized.eventEnd = e.NewEnd;
+                db.SaveChanges();
+                Update();
+            }
 
-            //protected override void OnTimeRangeSelected(TimeRangeSelectedArgs e)
-            //{
-            //    var toBeCreated = new Event
-            //    {
-            //        eventStart = e.Start,
-            //        eventEnd = e.End,
-            //        employee = (string)e.Data["name"]
-            //    };
-            //    db.events.InsertOnSubmit(toBeCreated);
-            //    db.SubmitChanges();
-            //    Update();
-            //}
+            protected override void OnTimeRangeSelected(TimeRangeSelectedArgs e)
+            {
+                var toBeCreated = new Event
+                {
+                    eventStart = e.Start,
+                    eventEnd = e.End,
+                    text = (string)e.Data["name"]
+                };
+                db.events.Add(toBeCreated);
+                db.SaveChanges();
+                Update();
+            }
 
-            //protected override void OnFinish()
-            //{
-            //    if (UpdateType == CallBackUpdateType.None)
-            //    {
-            //        return;
-            //    }
+            protected override void OnFinish()
+            {
+                if (UpdateType == CallBackUpdateType.None)
+                {
+                    return;
+                }
 
-            //    Events = from ev in db.events select ev;
+                Events = from ev in db.events select ev;
 
-            //    DataIdField = "id";
-            //    DataTextField = "text";
-            //    DataStartField = "eventstart";
-            //    DataEndField = "eventend";
-            //}
+                DataIdField = "id";
+                DataTextField = "text";
+                DataStartField = "eventstart";
+                DataEndField = "eventend";
+            }
         }
 	}
 }

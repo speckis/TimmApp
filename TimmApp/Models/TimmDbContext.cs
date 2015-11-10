@@ -20,7 +20,6 @@ namespace TimmApp.Models
 
         internal void SubmitChanges()
         {
-            throw new NotImplementedException();
         }
 
         internal void InsertOnSubmit()

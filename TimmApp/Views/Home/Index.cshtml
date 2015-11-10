@@ -3,10 +3,7 @@
 }
 
 <style>
-    body {
-        background: #fff;
-    }
-
+    
     .navbar-inverse {
         visibility: hidden;
     }
@@ -18,19 +15,19 @@
 <div class="startContainer">
     <div class="row">
         <div class="col-lg-6">
-            @Html.ActionLink("Employees", "Index", "Employee", null, new { @class = "btn btn-xl" })
+            @Html.ActionLink("Employees", "Index", "Employee", null, new { @class = "btn btn-blue" })
         </div>
 
         <div class="col-lg-6">
-            @Html.ActionLink("Postboard", "Index", "Post", null, new { @class = "btn btn-xl"})
+            @Html.ActionLink("Postboard", "Index", "Post", null, new { @class = "btn btn-brown"})
         </div>
 
         <div class="col-lg-6">
-            @Html.ActionLink("Calendar", "Index", "Event", null, new { @class = "btn btn-xl" })
+            @Html.ActionLink("Calendar", "Index", "Event", null, new { @class = "btn btn-green" })
         </div>
 
         <div class="col-lg-6">
-            @Html.ActionLink("Contracts", "Index", "Employee", new { @class = "btn btn-xl" })
+            @Html.ActionLink("Contracts", "Index", "Employee", new { @class = "btn btn-purple" })
         </div>
     </div>
 </div>
