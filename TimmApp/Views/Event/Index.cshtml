@@ -2,21 +2,21 @@
     @{
         ViewBag.Title = "Index";
     }
+    <link href="~/Content/calendar_green" rel="stylesheet" />
     <script src="~/Scripts/daypilot-all.min.js" type="text/javascript"></script>
-    <style>
-        body {
-            background: #fff;
-        }
-    </style>
-    <h2>Index</h2>
+
+    <div class="col-lg-12">
 
     @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
 {
     BackendUrl = Url.Content("~/Event/Backend"),
-    ViewType = DayPilot.Web.Mvc.Enums.Calendar.ViewType.Week,
+    Theme = "calendar_green",
+    //ViewType = DayPilot.Web.Mvc.Enums.Calendar.ViewType.Week,
     EventMoveHandling = DayPilot.Web.Mvc.Events.Calendar.EventMoveHandlingType.CallBack,
     TimeRangeSelectedHandling = DayPilot.Web.Mvc.Events.Calendar.TimeRangeSelectedHandlingType.JavaScript,
-  TimeRangeSelectedJavaScript = "dpc.timeRangeSelectedCallBack(start, end, null, { name: prompt('New Event Name:', 'New Event') });"
+    TimeRangeSelectedJavaScript = "dpc.timeRangeSelectedCallBack(start, end, null, { name: prompt('New Event Name:', 'New Event') });"
 
 })
+
+</div>
 

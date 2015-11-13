@@ -95,6 +95,7 @@ input[type="checkbox"].input-validation-error {
 
 h2, .h2 {
     color: #fff;
+    margin-left: 46px;
 }
 
 .startContainer {
@@ -219,4 +220,8 @@ h2, .h2 {
 .col-md-8 {
     margin-left: 27em;
     margin-top: 12em;
+}
+
+.col-lg-12 {
+    margin-top: 5em;
 }

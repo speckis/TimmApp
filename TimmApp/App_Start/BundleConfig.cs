@@ -25,7 +25,9 @@ namespace TimmApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/calendar_green.css",
+                      "~/Content/themes/base/css"));
         }
     }
 }

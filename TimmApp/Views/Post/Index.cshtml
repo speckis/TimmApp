@@ -9,6 +9,12 @@
     body {
         background: #7D4D2D;
     }
+
+    .label {
+        padding: 0.2em 4em 0.3em;
+        margin: -1em;
+    }
+
 </style>
 
     <h2>Postboard</h2>
@@ -19,7 +25,7 @@
 </div>
 
     <div class="col-md-1">
-
+        <h3><span class="label label-primary">1st Priority</span></h3>
         @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.First).OrderByDescending(a => a.postId))
         {
             <div class="row">
@@ -36,6 +42,7 @@
     </div>
 
     <div class="col-md-1">
+        <h3><span class="label label-danger">2nd Priority</span></h3> 
         @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.Second).OrderByDescending(a => a.postId))
         {
             <div class="row">
@@ -51,7 +58,9 @@
         }
     </div>
 
+   
     <div class="col-md-1">
+        <h3><span class="label label-success">3rd Priority</span></h3>
         @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.Third).OrderByDescending(a => a.postId))
         {
             <div class="row">
@@ -66,8 +75,9 @@
             </div>
         }
     </div>
-
+   
     <div class="col-md-1">
+        <h3><span class="label label-info">4th Priority</span></h3>
     @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.Forth).OrderByDescending(a => a.postId))
     {
         <div class="row">

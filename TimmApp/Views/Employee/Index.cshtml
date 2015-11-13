@@ -70,7 +70,7 @@
                     @Html.DisplayFor(modelItem => item.ContractEndDate)
                 </td>*@
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }, new { @class = "editLink" }) |
                     @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
                 </td>
@@ -79,4 +79,72 @@
 
     </table>
 
+    <div id="updateDialog" title="Update Employee"></div>
+
 </div>
+
+<script type="text/javascript">
+    var linkObj;
+    $(function () {
+        $(".editLink").button();
+
+        $('#updateDialog').dialog({
+            autoOpen: false,
+            width: 400,
+            resizable: false,
+            modal: true,
+            buttons: {
+                "Update": function () {
+                    $("#update-message").html(''); //make sure there is nothing on the message before we continue
+                    $("#updateCarForm").submit();
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $(".editLink").click(function () {
+            //change the title of the dialog
+            linkObj = $(this);
+            var dialogDiv = $('#updateDialog');
+            var viewUrl = linkObj.attr('href');
+            $.get(viewUrl, function (data) {
+                dialogDiv.html(data);
+                //validation
+                var $form = $("#updateEmployeeForm");
+                // Unbind existing validation
+                $form.unbind();
+                $form.data("validator", null);
+                // Check document for changes
+                $.validator.unobtrusive.parse(document);
+                // Re add validation with changes
+                $form.validate($form.data("unobtrusiveValidation").options);
+                //open dialog
+                dialogDiv.dialog('open');
+            });
+            return false;
+        });
+
+    });
+
+
+    function updateSuccess(data) {
+        if (data.Success == true) {
+            //we update the table's info
+            var parent = linkObj.closest("td");
+            parent.find(".Fname").html(data.Object.Fname);
+            parent.find(".Lname").html(data.Object.Lname);
+            //now we can close the dialog
+            $('#updateDialog').dialog('close');
+            //twitter type notification
+        }
+        else {
+            $("#update-message").html(data.ErrorMessage);
+            $("#update-message").show();
+        }
+    }
+
+</script>
+
+

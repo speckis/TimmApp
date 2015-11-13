@@ -10,7 +10,6 @@ using TimmApp.Models;
 using DayPilot.Web.Mvc.Enums;
 using DayPilot.Web.Mvc.Json;
 using DayPilot.Web.Mvc.Data;
-using DayPilot.Web.Mvc.Enums;
 namespace TimmApp.Controllers
 {
     public class EventController : Controller
@@ -63,7 +62,7 @@ namespace TimmApp.Controllers
 
             protected override void OnTimeRangeSelected(TimeRangeSelectedArgs e)
             {
-                var toBeCreated = new Event
+                var toBeCreated = new TimmApp.Models.Event 
                 {
                     eventStart = e.Start,
                     eventEnd = e.End,

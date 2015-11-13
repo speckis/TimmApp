@@ -70,7 +70,7 @@ namespace TimmApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return PartialView(employee);
         }
 
         // POST: /Employee/Edit/5
@@ -78,15 +78,20 @@ namespace TimmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="EmployeeId,Fname,Lname,PhoneNum,Email,Role,EmployedAs,ContractStartDate,ContractEndDate")] Employee employee)
+        public JsonResult Edit([Bind(Include="EmployeeId,Fname,Lname,PhoneNum,Email,Role,EmployedAs,ContractStartDate,ContractEndDate")] Employee employee)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(JsonResponseFactory.SuccessResponse(employee), JsonRequestBehavior.DenyGet);
+
+                //return RedirectToAction("Index");
             }
-            return View(employee);
+            else
+            {
+                return Json(JsonResponseFactory.ErrorResponse("Please review your form"), JsonRequestBehavior.DenyGet);
+            }
         }
 
         // GET: /Employee/Delete/5
