@@ -28,7 +28,7 @@
         <h3><span class="label label-primary">1st Priority</span></h3>
         @foreach (var item in Model.Posts.Where(x => x.priority == TimmApp.Models.Priority.First).OrderByDescending(a => a.postId))
         {
-            <div class="row">
+            <div class="row" style="background: #b6ff00; width: 20em;">
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.postId }, new { @class = "btn btn-default" })
                     @Html.ActionLink("Delete", "Delete", new { id = item.postId }, new { @class = "btn btn-default" })<br />*@<br />
                 <div class=" panel panel-first">

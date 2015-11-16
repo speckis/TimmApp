@@ -225,3 +225,7 @@ h2, .h2 {
 .col-lg-12 {
     margin-top: 5em;
 }
+
+.control-label {
+    font-size: 7px;
+}

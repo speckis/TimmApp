@@ -38,6 +38,7 @@ namespace TimmApp.Models
         [Required]
         public string Role { get; set; }
 
+        [Display(Name = "Employed as")]
         public EmployedAs EmployedAs { get; set; }
 
         [Required]

@@ -32,7 +32,7 @@ namespace TimmApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return Json(JsonResponseFactory.SuccessResponse(employee), JsonRequestBehavior.AllowGet);
         }
 
         // GET: /Employee/Create
@@ -99,14 +99,16 @@ namespace TimmApp.Controllers
         {
             if (id == null)
             {
+                //return Json(JsonResponseFactory.ErrorResponse("There is no data"), JsonRequestBehavior.DenyGet);
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Employee employee = db.Employees.Find(id);
             if (employee == null)
             {
+                //return Json(JsonRequestBehavior.DenyGet);
                 return HttpNotFound();
             }
-            return View(employee);
+            return PartialView(employee);
         }
 
         // POST: /Employee/Delete/5

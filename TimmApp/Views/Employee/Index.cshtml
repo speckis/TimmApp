@@ -10,77 +10,83 @@
     }
 </style>
     <h2>Employees</h2>
-<div class="appContent">
+<div class="container">
+    <div class="col-md-6">
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        @*<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Fname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Role)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployedAs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContractStartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContractEndDate)
-            </th>
-            <th></th>
-        </tr>*@
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            @*<tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Lname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNum)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Role)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmployedAs)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ContractStartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ContractEndDate)
+                    </th>
+                    <th></th>
+                </tr>*@
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname)
-                </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname)
+                    </td>
 
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.PhoneNum)
-                </td>*@
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.Role)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmployedAs)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.ContractStartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContractEndDate)
-                </td>*@
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }, new { @class = "editLink" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
-                </td>
-            </tr>
-        }
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.PhoneNum)
+                        </td>*@
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployedAs)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ContractStartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractEndDate)
+                        </td>*@
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }, new { @class = "editLink" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }, new { id = "detailsLink" }) |
+                        @*<button id="Button1">Click</button>*@
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })*@
+                    </td>
+                </tr>
+            }
 
-    </table>
+        </table>
 
-    <div id="updateDialog" title="Update Employee"></div>
+        <div class="col-md-6">
+            <div id="divtest" style="background: #fff; width: 100px; height: 100px;"></div>
+            </div>
+            <div id="updateDialog" title="Update Employee"></div>
 
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -95,32 +101,27 @@
             modal: true,
             buttons: {
                 "Update": function () {
-                    $("#update-message").html(''); //make sure there is nothing on the message before we continue
-                    $("#updateCarForm").submit();
+                    $("#update-message").html('');
+                    $("#updateEmployeeForm").submit();
                 },
                 "Cancel": function () {
                     $(this).dialog("close");
                 }
             }
+
         });
 
         $(".editLink").click(function () {
-            //change the title of the dialog
             linkObj = $(this);
             var dialogDiv = $('#updateDialog');
             var viewUrl = linkObj.attr('href');
             $.get(viewUrl, function (data) {
                 dialogDiv.html(data);
-                //validation
                 var $form = $("#updateEmployeeForm");
-                // Unbind existing validation
                 $form.unbind();
                 $form.data("validator", null);
-                // Check document for changes
                 $.validator.unobtrusive.parse(document);
-                // Re add validation with changes
                 $form.validate($form.data("unobtrusiveValidation").options);
-                //open dialog
                 dialogDiv.dialog('open');
             });
             return false;
@@ -131,19 +132,52 @@
 
     function updateSuccess(data) {
         if (data.Success == true) {
-            //we update the table's info
             var parent = linkObj.closest("td");
             parent.find(".Fname").html(data.Object.Fname);
             parent.find(".Lname").html(data.Object.Lname);
-            //now we can close the dialog
+            parent.find(".Role").html(data.Object.Role);
+            parent.find(".EmployedAs").html(data.Object.EmployedAs);
             $('#updateDialog').dialog('close');
-            //twitter type notification
+            updateSuccess: callback;  
         }
         else {
             $("#update-message").html(data.ErrorMessage);
             $("#update-message").show();
         }
     }
+    $(document).ready(
+     $(function () {
+         $(".detailsLink").button();
+
+         $("#divtest").show();
+
+         $(".detailsLink").click(function (e) {
+             e.preventDefault();
+             linkObj = $(this);
+             var detailsDiv = $('#updateDialog');
+             var viewUrl = linkObj.attr('href');
+             $.get(viewUrl, function (data) {
+                 detailsDiv.html(data);
+             });
+             return false;
+         });
+
+     }));
+
+    //jQuery(document).ready(function() {
+
+    //    $("#Button1").click(function() {
+
+    //        $("#divtest").show();
+    //    });
+
+    //    $("#detailsLink").click(function(e) {
+    //        e.preventDefault();
+    //        $("#divtest").css("display", " ");
+    //        $("#divtest").show();
+    //    });
+
+    //});
 
 </script>
 
