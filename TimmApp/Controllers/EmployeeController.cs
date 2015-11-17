@@ -32,7 +32,8 @@ namespace TimmApp.Controllers
             {
                 return HttpNotFound();
             }
-            return Json(JsonResponseFactory.SuccessResponse(employee), JsonRequestBehavior.AllowGet);
+            return View(employee);
+            //return Json(JsonResponseFactory.SuccessResponse(employee), JsonRequestBehavior.AllowGet);
         }
 
         // GET: /Employee/Create
@@ -56,6 +57,7 @@ namespace TimmApp.Controllers
             }
 
             return View(employee);
+
         }
 
         // GET: /Employee/Edit/5

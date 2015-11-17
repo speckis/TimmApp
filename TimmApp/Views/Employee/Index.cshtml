@@ -6,91 +6,124 @@
 
 <style>
     body {
-        background: #1D5046;
+        background: #032720;
     }
+
+    h2 {
+        margin-left: 29px;
+    }
+
 </style>
-    <h2>Employees</h2>
+    <h2>@*Employees*@</h2>
 <div class="container">
     <div class="col-md-6">
 
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
+  
+            @Html.ActionLink("Add employee", "Create", null, new { @class = "btn btn-green" })
+ 
         <table class="table">
-            @*<tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Fname)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Lname)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhoneNum)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Role)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmployedAs)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ContractStartDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ContractEndDate)
-                    </th>
-                    <th></th>
-                </tr>*@
+
 
             @foreach (var item in Model)
             {
+                
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname)
-                    </td>
-
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.PhoneNum)
-                        </td>*@
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Role)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EmployedAs)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.ContractStartDate)
+                        <td>
+                            <div class="listView">
+                                @Html.ActionLink(Html.DisplayFor(modelItem => item.Fname).ToHtmlString(), "Details", new { id = item.EmployeeId }) @Html.ActionLink(Html.DisplayFor(modelItem => item.Lname).ToHtmlString(), "Details", new { id = item.EmployeeId })
+                            </div>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ContractEndDate)
-                        </td>*@
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }, new { @class = "editLink" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }, new { id = "detailsLink" }) |
-                        @*<button id="Button1">Click</button>*@
-                        @*@Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })*@
-                    </td>
+                            <div class="listView">
+                                @Html.DisplayFor(modelItem => item.Role)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="listView">
+                                @Html.DisplayFor(modelItem => item.EmployedAs)
+                            </div>
+                        </td>
+                        @*<td>
+                @Html.DisplayFor(modelItem => item.ContractStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContractEndDate)
+            </td>*@
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }, new { @class = "editLink" })
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })*@
+                        </td>
                 </tr>
             }
 
         </table>
 
-        <div class="col-md-6">
-            <div id="divtest" style="background: #fff; width: 100px; height: 100px;"></div>
-            </div>
             <div id="updateDialog" title="Update Employee"></div>
 
     </div>
 </div>
 
-<script type="text/javascript">
+<script type="text/javascript"> 
     var linkObj;
+
+    //$(function () {
+    //    $(".createLink").button();
+
+    //    $('#updateDialog').dialog({
+    //        autoOpen: false,
+    //        width: 400,
+    //        resizable: false,
+    //        modal: true,
+    //        buttons: {
+    //            "Create": function () {
+    //                $("#update-message").html('');
+    //                $("#createEmployeeForm").submit();
+    //            },
+    //            "Cancel": function () {
+    //                $(this).dialog("close");
+    //            }
+    //        }
+
+    //    });
+
+    //    $(".createLink").click(function () {
+    //        linkObj = $(this);
+    //        var dialogDiv = $('#updateDialog');
+    //        var viewUrl = linkObj.attr('href');
+    //        $.get(viewUrl, function (data) {
+    //            dialogDiv.html(data);
+    //            var $form = $("#createEmployeeForm");
+    //            $form.unbind();
+    //            $form.data("validator", null);
+    //            $.validator.unobtrusive.parse(document);
+    //            $form.validate($form.data("unobtrusiveValidation").options);
+    //            dialogDiv.dialog('open');
+    //        });
+    //        return false;
+    //    });
+
+    //});
+
+
+    //function updateSuccess(data) {
+    //    if (data.Success == true) {
+    //        var parent = linkObj.closest("td");
+    //        parent.find(".Fname").html(data.Object.Fname);
+    //        parent.find(".Lname").html(data.Object.Lname);
+    //        parent.find(".Role").html(data.Object.Role);
+    //        parent.find(".EmployedAs").html(data.Object.EmployedAs);
+    //        $('#updateDialog').dialog('close');
+    //    }
+    //    else {
+    //        $("#update-message").html(data.ErrorMessage);
+    //        $("#update-message").show();
+    //    }
+    //}
+
+
+
     $(function () {
         $(".editLink").button();
 
@@ -137,47 +170,14 @@
             parent.find(".Lname").html(data.Object.Lname);
             parent.find(".Role").html(data.Object.Role);
             parent.find(".EmployedAs").html(data.Object.EmployedAs);
-            $('#updateDialog').dialog('close');
-            updateSuccess: callback;  
+            $('#updateDialog').dialog('close'); 
         }
         else {
             $("#update-message").html(data.ErrorMessage);
             $("#update-message").show();
         }
     }
-    $(document).ready(
-     $(function () {
-         $(".detailsLink").button();
-
-         $("#divtest").show();
-
-         $(".detailsLink").click(function (e) {
-             e.preventDefault();
-             linkObj = $(this);
-             var detailsDiv = $('#updateDialog');
-             var viewUrl = linkObj.attr('href');
-             $.get(viewUrl, function (data) {
-                 detailsDiv.html(data);
-             });
-             return false;
-         });
-
-     }));
-
-    //jQuery(document).ready(function() {
-
-    //    $("#Button1").click(function() {
-
-    //        $("#divtest").show();
-    //    });
-
-    //    $("#detailsLink").click(function(e) {
-    //        e.preventDefault();
-    //        $("#divtest").css("display", " ");
-    //        $("#divtest").show();
-    //    });
-
-    //});
+    
 
 </script>
 

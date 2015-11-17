@@ -3,19 +3,26 @@
 @{
     ViewBag.Title = "Details";
 }
-<div class="appContent">
+<style>
+    body {
+        background: #032720;
+    }
+
+    .dl-horizontal {
+        font-size: 17px;
+        color: #fff;
+    }
+</style>
+
     <h2>Details</h2>
 
-    <div>
-        <h4>Employee</h4>
-        <hr />
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Fname)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Fname)
+                @Html.DisplayFor(model => model.Fname, new { @class = "listView" })
             </dd>
 
             <dt>
@@ -23,7 +30,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Lname)
+                @Html.DisplayFor(model => model.Lname, new { @class = "listView" })
             </dd>
 
             <dt>
@@ -31,7 +38,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.PhoneNum)
+                @Html.DisplayFor(model => model.PhoneNum, new { @class = "listView" })
             </dd>
 
             <dt>
@@ -39,7 +46,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Email)
+                @Html.DisplayFor(model => model.Email, new { @class = "listView" })
             </dd>
 
             <dt>
@@ -47,7 +54,15 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Role)
+                @Html.DisplayFor(model => model.Role, new { @class = "listView" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EmployedAs)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmployedAs, new { @class = "listView" })
             </dd>
 
             <dt>
@@ -55,7 +70,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.ContractStartDate)
+                @Html.DisplayFor(model => model.ContractStartDate, new { @class = "listView" })
             </dd>
 
             <dt>
@@ -67,10 +82,8 @@
             </dd>
 
         </dl>
-    </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
 
-</div>
+

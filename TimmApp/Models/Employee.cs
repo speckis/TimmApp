@@ -43,10 +43,12 @@ namespace TimmApp.Models
 
         [Required]
         [Display(Name = "Contract sign date")]
+        [DisplayFormat(DataFormatString="{0:dd/MM/yyyy}")]
         public DateTime ContractStartDate { get; set; }
 
         [Required]
         [Display(Name = "Contract ends")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime ContractEndDate { get; set; }
     }
 

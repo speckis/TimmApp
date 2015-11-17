@@ -2,7 +2,7 @@
 
 .calendar_green_main  
 {
-	border: 1px solid #999;
+	/*border: 1px solid #999;*/
 }
 
 .calendar_green_colheader
@@ -16,7 +16,7 @@
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-bottom: 1px solid #999;
+	/*border-bottom: 1px solid #999;*/
 	
 	color: #666;
 	background: #666;
@@ -45,19 +45,19 @@
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-right: 1px solid #999;
-	border-bottom: 1px solid #999;
+	/*border-right: 1px solid #999;
+	border-bottom: 1px solid #999;*/
 	
 	color: #ffffff;
 	background: #666;
 	background: -moz-linear-gradient(
 		top,
-		#777 0%,
-		#666);
+		#405F36 0%,
+		#405F36);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#777),
-		to(#666));
+		from(#405F36),
+		to(#405F36));
 	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#777777", endColorStr="#666666");
 	text-shadow:
 		0px -1px 1px rgba(000,000,000,0.2),
@@ -108,19 +108,19 @@
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-right: 1px solid #999;
-	border-bottom: 1px solid #999;
+	/*border-right: 1px solid #999;
+	border-bottom: 1px solid #999;*/
 	
 	color: #ffffff;
-	background: #666;
+	background: #618854;
 	background: -moz-linear-gradient(
 		top,
 		#777 0%,
 		#666);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#777),
-		to(#666));
+		from(#405F36),
+		to(#405F36));
 	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#777777", endColorStr="#666666");
 	text-shadow:
 		0px -1px 1px rgba(000,000,000,0.2),
@@ -217,8 +217,8 @@
 		#8aaa00);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#a2c200),
-		to(#8aaa00));
+		from(#618854),
+		to(#618854));
 	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#a2c200", endColorStr="#8aaa00");
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -292,8 +292,8 @@
 	bottom: 4px;
     left: 6px;
 	width: 2px;
-	background-color: #C0D46A;
-	background-color: #C7D48D;
+	background-color: #618854;
+	background-color: #618854;
 }
 
 .calendar_green_event_bar_inner  
@@ -320,7 +320,7 @@
 
 .calendar_green_shadow_inner 
 {
-	background-color: #666666;
+	background-color: #618854;
 	opacity: 0.5;
 	filter: alpha(opacity=50);
 	height: 100%;

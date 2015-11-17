@@ -44,7 +44,8 @@ namespace TimmApp.Controllers
 
             protected override void OnEventResize(EventResizeArgs e)
             {
-                var toBeResized = (from ev in db.events where ev.id == Convert.ToInt32(e.Id) select ev).First();
+                var id = Convert.ToInt32(e.Id);
+                var toBeResized = (from ev in db.events where ev.id == id select ev).First();
                 toBeResized.eventStart = e.NewStart;
                 toBeResized.eventEnd = e.NewEnd;
                 db.SaveChanges();

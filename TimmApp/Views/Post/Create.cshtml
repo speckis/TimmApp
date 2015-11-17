@@ -4,7 +4,17 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<style>
+    body {
+        background: #0C0E1D;
+    }
+
+    .btn-green {
+        padding: 0;
+    }
+</style>
+
+<h2>Add a new post</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,37 +22,35 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Post</h4>
-        <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.postMsg, new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.postMsg, new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.postMsg)
+                @Html.TextAreaFor(model => model.postMsg, 10, 40, new { style = "border: none;" })
                 @Html.ValidationMessageFor(model => model.postMsg)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.priority, new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.priority, new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.priority)
+                @Html.EnumDropDownListFor(model => model.priority, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.priority)
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-10">
+                <input type="submit" value="Create" class="btn btn-green" />
             </div>
         </div>
     </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
